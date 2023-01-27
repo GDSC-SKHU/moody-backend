@@ -22,24 +22,22 @@ public class HeatmapController {
 
 
 
-    @GetMapping("/{userName}")
+    @GetMapping("")
     public ResponseEntity<MemberDTO> findByUserData(
-            Principal principal,
-            @PathVariable("userName") String userName
+            Principal principal
     ){
-        MemberDTO memberDTO = memberService.findAllByMember(principal,userName);
+        MemberDTO memberDTO = memberService.findAllByMember(principal);
         return ResponseEntity.ok(memberDTO);
     }
 
 
 
-    @PostMapping("/{userName}/add")
+    @PostMapping("/add")
     public ResponseEntity<String> postSave(
             Principal principal,
-            @PathVariable("userName") String userName,
             @RequestBody HeatmapDTO request
     ) {
-        heatmapService.saveHeatmap(principal, userName, request);
+        heatmapService.saveHeatmap(principal, request);
         return ResponseEntity.ok("heatmap save success");
     }
 

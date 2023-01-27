@@ -21,9 +21,8 @@ public class HeatmapService {
     private final HeatmapRepository heatmapRepository;
 
     @Transactional
-    public void saveHeatmap(Principal principal, String userName, HeatmapDTO heatmapDTO) {
-        if(!userName.equals(principal.getName()))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,userName+"자신만이 정보를 불러 올 수 있습니다.");
+    public void saveHeatmap(Principal principal, HeatmapDTO heatmapDTO) {
+        String userName = principal.getName();
         Member member = memberRepository.findByUserName(userName)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"해당 사용자를 찾을 수 없습니다."));;
         heatmapRepository.save(
