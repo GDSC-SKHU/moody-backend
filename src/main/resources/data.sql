@@ -1,9 +1,11 @@
 use moody;
 
 insert into user(user_name, password) values ('hyunblee', '{bcrypt}$2a$10$4kWzwruKCB.0KtXOwYIlbe0rThqMI6e0pHFeZszpWnd2cPe1mgH3q');
+insert into member_roles(member_id, roles) values (1, 'USER');
 
 insert into user(user_name, password) values ('yujin', '{bcrypt}$2a$10$4kWzwruKCB.0KtXOwYIlbe0rThqMI6e0pHFeZszpWnd2cPe1mgH3q');
-insert into heatmap(year, month, day, feeling, user_id) values ("2023","01","01", 3, 2);
+insert into member_roles(member_id, roles) values (2, 'USER');
+insert into heatmap(year, month, day, feeling, user_id) values ("2023","01","01", 2, 2);
 insert into heatmap(year, month, day, feeling, user_id) values ("2023","01","02", 2, 2);
 insert into heatmap(year, month, day, feeling, user_id) values ("2023","01","03", 3, 2);
 insert into heatmap(year, month, day, feeling, user_id) values ("2023","01","04", 2, 2);
