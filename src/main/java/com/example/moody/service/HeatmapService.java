@@ -27,7 +27,9 @@ public class HeatmapService {
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"해당 사용자를 찾을 수 없습니다."));;
         heatmapRepository.save(
                 Heatmap.builder()
-                        .date(heatmapDTO.getDate())
+                        .year(heatmapDTO.getYear())
+                        .month(heatmapDTO.getMonth())
+                        .day(heatmapDTO.getDay())
                         .feeling(heatmapDTO.getFeeling())
                         .member(member)
                         .build()

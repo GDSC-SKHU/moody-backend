@@ -21,8 +21,14 @@ public class Heatmap {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "date", nullable = false, length = 150)
-    private String date;
+    @Column(name = "year", nullable = false, length = 150)
+    private String year;
+
+    @Column(name = "month", nullable = false, length = 150)
+    private String month;
+
+    @Column(name = "day", nullable = false, length = 150)
+    private String day;
 
     @Column(name = "feeling", nullable = false)
     private Long feeling;
@@ -33,7 +39,9 @@ public class Heatmap {
 
     public HeatmapDTO toDTO(){
         return HeatmapDTO.builder()
-                .date(date)
+                .year(year)
+                .month(month)
+                .day(day)
                 .feeling(feeling)
                 .build();
     }
